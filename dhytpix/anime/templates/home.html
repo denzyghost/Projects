@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Home | Dhytpix
+{% endblock %}
+
+{% block head %}
+<style>
+    .cell:hover {
+        transform: scale(1.01);
+        transition: transform 400ms;
+    }
+
+    #id_email{
+        width: 100%;
+        color: #000000;
+        padding: 5px 5px;
+    }
+
+    a:hover {
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <header class="min-h-screen bg-black bg-opacity-75 bg-blend-overlay showcase border-gray-600 border-b-8 flex justify-center items-center bg-no-repeat"  style="background-image: url('{% static 'img/Background_CowboyBebopHellica.jpg' %}');">
+        <div class="z-10 h-full py-32 md:py-0 text-gray-100 text-center flex items-center flex-col">
+
+            <h1 class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+                Filmes e séries da Dhytpix, tudo em um só lugar.
+            </h1>
+            <h3 class="text-xl md:text-xl py-5">
+                Assista onde quiser. Cancele quando quiser.
+            </h3>
+            <h4 class="text-sm md:text-lg pb-3">
+                Faça o acesso direto clicando no botão abaixo, ou realize seu Login<br />
+                para ter uma experiência mais imersiva!
+            </h4>
+
+            <div class="w-full flex justify-center">
+                <div class="flex w-full justify-center items-center">
+
+                <a href="{% url 'anime:homeanimes' %}" style="text-decoration: none">
+			        <button class="btn btn-outline-danger py-2 px-5" type="submit">Acessar</button>
+		        </a>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+
+
+    <section class='flex flex-col items-center border-gray-900 border-b-8' style="min-height: 50vh;">
+            <div class="p-8 w-10/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Populares na Dhytpix
+                </h2>
+                <div class="wrapper">
+
+                  <section id="section1emalta" class="flex flex-nowrap items-center justify-center space-x-8">
+
+                      {% for anime in epic_anime_list %}
+                      {% if forloop.counter < 5%}
+
+                      <div class="item h-64 w-1/4 m-4 cell">
+                          <a href="{% url 'anime:animedetails' anime.pk %}">
+                            <img src="{{ anime.thumb.url }}" class="rounded-md w-full h-full object-cover">
+                          </a>
+                      </div>
+
+                      {% endif %}
+                      {% endfor %}
+
+                  </section>
+            </div>
+    </section>
+
+    <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10 ">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Divirta-se Gratuitamente!
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                Tenha bom aproveito de todo o conteúdo que disponibilizamos na plataforma gratuitamente!
+            </h5>
+        </div>
+        <div class='md:w-1/2 flex justify-center items-center'>
+            <img src="{% static 'img/watch-on-pc.webp' %}" class="w-8/12 rounded-md" alt="">
+        </div>
+    </section>
+
+    <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class='md:w-1/2 flex justify-center items-center '>
+            <a href="https://warezcdn.com" target="_blank" rel="noreferrer noopener">
+                <img src="{% static 'img/warezLogo.png' %}" class="initial" alt="">
+            </a>
+        </div>
+
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                De onde é provido o conteúdo?
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                Todo o conteúdo deste site é promovido pela <a href="https://warezcdn.com" target="_blank" rel="noreferrer noopener"><i>WAREZCDN</i></a>.<br />
+                A maior api de filmes, series e animes do mundo.
+            </h5>
+        </div>
+
+    </section>
+
+    <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Parceiros Associados
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                Infelizmente ainda não temos Parceiros :(<br />
+                Mas para se tornar um, entre em contato com a equipe superte!!
+            </h5>
+        </div>
+        <div class='md:w-1/2 flex justify-center items-center'>
+            <img src="{% static 'images/netflix_kid.png' %}" class="w-8/12" alt="">
+        </div>
+    </section>
+
+
+{% endblock %}

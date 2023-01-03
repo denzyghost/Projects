@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Animes | Dhytpix
+{% endblock %}
+
+{% block head%}
+<style>
+
+    .cell:hover {
+        transform: scale(1.02);
+        transition: transform 400ms;
+    }
+
+
+    .btn_ri:hover{
+        transform: scale(1.05);
+    }
+
+    #btn_more{
+        position: relative;
+        left: 10%;
+
+    }
+
+    #brtn_historic{
+        position: relative;
+        left: 530%;
+        top: -100%;
+    }
+
+    #histid{
+      left: 100px;
+      top: 15%;
+    }
+
+    a:hover {
+        color: white;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <main class='bg-primary_black min-h-screen w-full'>
+        <section class="h-screen relative bg-no-repeat pb-8 pl-6 flex items-end bg-cover" style="background-image: url('{{ featured_anime.thumb.url }}');">
+            <div>
+                <h2 class="text-6xl font-semibold text-white my-4 object_name">
+                    {{ featured_anime.name }}
+                </h2>
+                <p class=" w-11/12 md:w-5/12 font-medium text-white my-4">
+                    {{ featured_anime.description|slice:":100" }}...
+                </p>
+                <div class="flex my-4">
+                    <a href="{% url 'anime:animedetails' featured_anime.pk %}">
+                            <button class="flex items-center btn_ri bg-white py-2 px-5 rounded-md" style='color:black;'>
+                            <ion-icon name="open-outline" class="text-2xl"></ion-icon>
+                            <span class="ml-3 font-medium " >
+                                Open
+                            </span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class='bg-primary_black flex justify-center py-10'>
+            <div class="p-8 w-11/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Novo
+                </h2>
+                <div class="wrapper">
+
+                  <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
+
+                      {% for anime in recent_anime_list %}
+                      {% if forloop.counter < 5 %}
+
+                      <div class="item h-64 w-1/4 m-4 cell">
+                          <a href="{% url 'anime:animedetails' anime.pk %}">
+                            <img src="{{ anime.thumb.url }}" class="rounded-md w-full h-full object-cover">
+                          </a>
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+
+                        <a href="#section2" class="arrow__btn text-6xl">››</a>
+
+                  </section>
+                    {% if recent_anime_list|length > 4 %}
+
+                      <section id="section2" class="flex flex-nowrap items-center justify-center">
+                        <a href="#section1" class="arrow__btn text-6xl">‹‹</a>
+
+                          {% for anime in recent_anime_list %}
+                          {% if forloop.counter > 4%}
+
+                      <div class="item h-64 w-1/4 m-4 cell">
+                          <a href="{% url 'anime:animedetails' anime.pk %}">
+                            <img src="{{ anime.thumb.url }}" class="rounded-md w-full h-full object-cover">
+                          </a>
+                      </div>
+
+                      {% endif %}
+                      {% endfor %}
+                      </section>
+                    {% endif %}
+                </div>
+
+
+            </div>
+        </section>
+
+         <section class='bg-primary_black flex justify-center py-10'>
+            <div class="p-8 w-11/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Em Alta
+                </h2>
+                <div class="wrapper">
+
+                  <section id="section1emalta" class="flex flex-nowrap items-center justify-center space-x-8">
+
+                      {% for anime in epic_anime_list %}
+                      {% if forloop.counter < 5%}
+
+                      <div class="item h-64 w-1/4 m-4 cell">
+                          <a href="{% url 'anime:animedetails' anime.pk %}">
+                            <img src="{{ anime.thumb.url }}" class="rounded-md w-full h-full object-cover">
+                          </a>
+                      </div>
+
+                      {% endif %}
+                      {% endfor %}
+
+                        <a href="#section2emalta" class="arrow__btn text-6xl">››</a>
+                  </section>
+                    {% if epic_anime_list|length > 4 %}
+                      <section id="section2emalta" class="flex flex-nowrap items-center justify-center">
+                        <a href="#section1emalta" class="arrow__btn text-6xl">‹‹</a>
+                          {% for anime in epic_anime_list %}
+                          {% if forloop.counter > 4 %}
+                      <div class="item h-64 w-1/4 m-4 cell">
+                          <a href="{% url 'anime:animedetails' anime.pk %}">
+                            <img src="{{ anime.thumb.url }}" class="rounded-md w-full h-full object-cover">
+                          </a>
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+                      </section>
+                    {% endif %}
+                </div>
+
+
+        <div class="flex my-4">
+             <a href="#">
+                <button ID="btn_more" class="flex items-center btn_ri bg-white py-2 px-5 rounded-md" style='color:black;'>
+                   <ion-icon name="bookmarks-outline"></ion-icon>
+                       <span class="ml-3 font-medium " >
+                          More
+                        </span>
+                </button>
+             </a>
+        </div>
+            </div>
+        </section>
+
+      {% if request.user.historic_animes.all|length >= 1 %}
+        <section class='bg-primary_black flex justify-center py-10'>
+            <div class="p-8 w-11/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Contunuar Assistindo
+                </h2>
+                <div class="wrapper">
+
+                  <section id="section1vistos" class="flex flex-nowrap items-center justify-center space-x-8">
+
+
+                      {% for anime in request.user.historic_animes.all %}
+                      {% if forloop.counter < 5 %}
+
+                      <div class="item h-64 w-1/4 m-4 cell">
+                          <a href="{% url 'anime:animedetails' anime.pk %}">
+                            <img src="{{ anime.thumb.url }}" class="rounded-md w-full h-full object-cover">
+                          </a>
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+
+                  </section>
+
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+
+<center>
+
+    <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 50vh;">
+        <div class='md:w-1/2 flex justify-center items-center '>
+            <a href="https://warezcdn.com" target="_blank" rel="noreferrer noopener">
+                <img src="{% static 'img/warezLogo.png' %}" class="initial" alt="">
+            </a>
+        </div>
+
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Origin of video content
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                All content on this site is promoted by WAREZCDN.<br>
+                The biggest API for movies, series and anime in the world.
+            </h5>
+        </div>
+
+    </section>
+
+    <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Associated partners
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                Contact the superte team to become a partner or associate!!
+            </h5>
+        </div>
+        <div class='md:w-1/2 flex justify-center items-center'>
+
+        </div>
+    </section>
+
+
+{% endblock %}

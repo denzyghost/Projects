@@ -1,0 +1,94 @@
+Django - completo!
+
+- Planejamento da estrutura do site:
+	{
+    - Homepage
+	- Barra de navegação
+    - Usuário e Autenticação
+		- Email, username, senha, Edição de perfil, algo mais...
+	}
+	- Caso seja necessário a alteração de algum campo no usuário,
+	  é conveniente já criar desde o início um usuário personalizado...
+	
+	- App
+		Campos do app
+		- Thumb, Titulo, Descricao, Data decriação
+			- Subcampo
+
+>> pip install django
+>> django-admin startproject dhytpix .
+>> django-admin startapp anime
+
+- Criando Usuário Personalizado:
+
+	<On "app/models.py">
+		from django.contrib.auth.models import AbstractUser
+		
+		class User(AbstractUser):
+			pass
+	</>
+	
+	<On "app/admin.py">
+		from .models import User
+		from django.contrib.auth.admin import UserAdmin
+
+
+		admin.site.register(User, UserAdmin)
+	</>
+	
+	Em coma de "AUTH_PASSWORD_VALIDATORS"
+	Em:
+	<On "project/settings.py">
+		AUTH_USER_MODEL = "app.User"
+	</>
+	
+	Add the 'app' on INSTALLED_APPS in "project/settings.py"
+
+>> python manage.py makemigrations
+>> python manage.py migrate
+
+>> python manage.py createsuperuser
+
+>> python manage.py runserver
+
+
+- Create a file "urls.py" in the app
+- On "project/urls.py"
+	<>
+	from django.urls import path, include
+
+	urlpatterns = [
+		path('securename/', admin.site.urls),
+      # path('/', include('anime.urls')),
+	]
+	</>
+- Create the main class on "app/models.py"
+
+>> pip install pillow
+
+>> python manage.py makemigrations
+>> python manage.py migrate
+	
+	< On "app/admin.py">
+	from .models import Classname
+	
+	admin.site.register(Classname)
+	</>
+
+>> python manage.py runserver
+
+
+-- crete a folder "static<css/img/js" and "media"
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

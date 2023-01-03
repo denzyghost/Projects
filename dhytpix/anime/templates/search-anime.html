@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Search "{{ request.GET.query }}" | Dhytpix
+{% endblock %}
+
+{% block head %}
+<style>
+    .cell:hover {
+        transform: scale(1.01);
+        transition: transform 400ms;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <main class='bg-primary_black min-h-screen w-full'>
+        <section class='bg-primary_black  min-h-screen flex justify-center py-10'>
+            <div class="p-8 w-10/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Resultados da Busca
+                </h2>
+                <div class="flex flex-wrap items-center min-w-full movie_lis">
+                  {% for anime in object_list %}
+                    <div class="cell m-4 bg-blue-500 overflow-hidden flex-shrink-0 rounded-md cursor-pointer h-64 w-96">
+                        <a href="{% url 'anime:animedetails' anime.pk %}">
+                          <img src="{{ anime.thumb.url }}" class="object-cover w-full h-full " alt="">
+                        </a>
+                    </div>
+                  {% endfor %}
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+{% endblock %}

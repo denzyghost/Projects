@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {{ user.username }}|Dhytpix
+{% endblock %}
+
+{% block head%}
+<style>
+.initial{
+    border-radius: 25px;
+    }
+    #id_first_name{
+    color: #000000;
+    }
+
+    .text-white{
+    color: #554545;
+    height: px-5 py-10;
+    }
+
+    #id_email{
+    color: #000000;
+    }
+     #id_last_name{
+    color: #000000;
+    }
+    #id_email{
+    color: #000000;
+    }
+    #id_old_password{
+    color: #000000;
+    }
+    #id_new_password1{
+    color: #000000;
+    }
+
+    #id_new_password2{
+    color: #000000;
+    }
+
+    #ofooter{
+    position: center;
+    width: 60%;
+    }
+
+    #subss{
+    background-color: #1d8b56b2;
+    }
+
+.btn_ri:hover{
+        transform: scale(1.01);
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <header class="min-h-screen bg-black bg-opacity-75 showcase border-gray-600 border-b-8 flex justify-center items-center bg-no-repeat"  style="background-image: url('#');">
+        <div class="z-10 h-full py-32 md:py-0 text-gray-100 text-center flex items-center flex-col">
+
+                <h2 class="text-2xl">{{ user.username }},</h2>
+
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">edite os campos abaixo para modificar suas informações</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <br>
+                <button id="subss" class="w-full btn_ri py-1 px-5 text-white md:text-lg rounded-md" type="submit">Salvar</button>
+            </form>
+            <small><a href="{% url 'anime:changepassword' %}">Quer mudar sua senha?</a></small>
+        </div>
+    </header>
+{% endblock %}
