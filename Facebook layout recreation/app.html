@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>DhytmFace</title>
 </head>
 
@@ -16,19 +17,104 @@
             <figure>
                 <img src="img/logo.png" alt="Logo DhytmFace" class="logo">
             </figure>
-
             <ul>
-                <li> <img src="img/notification.png" alt=""> </li>
-                <li> <img src="img/inbox.png" alt=""> </li>
-                <li> <img src="img/video.png" alt=""> </li>
+                <li> <img src="img/notification.png" alt="" /> </li>
+                <li> <img src="img/inbox.png" alt="" /> </li>
+                <li> <img src="img/video.png" alt="" /> </li>
 
             </ul>
         </div>
 
-
-        <div class="nav-right"></div>
+        <div class="nav-right">
+            <div class="search-box">
+                <img src="img/search.png" alt="buscador" />
+                <input type="text" placeholder="Buscar..." />
+            </div>
+            <div class="nav-user-icon online">
+                <img src="img/profile-pic.png" alt="perfil" />
+            </div>
+        </div>
     </nav>
+
+    <main class="container">
+        <aside class="left-sidebar">
+            <div class="imp-links">
+                <a href="#"> <img src="img/news.png" alt=""> Last news</a>
+                <a href="#"> <img src="img/friends.png" alt="">Friends</a>
+                <a href="#"> <img src="img/group.png" alt=""> Groups</a>
+                <a href="#"> <img src="img/marketplace.png" alt=""> Store</a>
+                <a href="#"> <img src="img/watch.png" alt=""> Videos</a>
+
+                <a href="#"> See More</a>
+            </div>
+
+            <div class="shortcut-links">
+                <p>My shortcuts</p>
+                <a href="#"> <img src="img/shortcut-1.png" alt="Shortcut 1"> Channel DhytmFace</a>
+                <a href="#"> <img src="img/shortcut-2.png" alt="Shortcut 2"> Web development course</a>
+                <a href="#"> <img src="img/shortcut-3.png" alt="Shortcut 3"> JS course</a>
+                <a href="#"> <img src="img/shortcut-4.png" alt="Shortcut 4"> Python programming</a>
+
+            </div>
+        </aside>
+
+        <div class="main-container">
+            Center
+        </div>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-title">
+                <h4>Events</h4>
+                <a href="#">See alll</a>
+            </div>
+
+            <div class="events">
+                <div class="left-event">
+                    <h3>07</h3>
+                    <span>June</span>
+                </div>
+                <div class="right-event">
+                    <h3>Opening</h3>
+                    <p> <i class="fa-solid fa-location-dot"></i></i> Undefined</p>
+                    <a href="#">More Information</a>
+                </div>
+            </div>
+
+            <div class="events">
+                <div class="left-event">
+                    <h3>03</h3>
+                    <span>November</span>
+                </div>
+                <div class="right-event">
+                    <h3>Presentation</h3>
+                    <p> <i class="fa-solid fa-location-dot"></i></i> Undefined</p>
+                    <a href="#">More Information</a>
+                </div>
+            </div>
+
+            <div class="sidebar-title">
+                <h4>Sponsored</h4>
+                <a href="#">Close</a>
+            </div>
+            <img src="img/advertisement.png" class="sidebar-ads" alt="Sponsored">
+
+            <div class="sidebar-title">
+                <h4>Chat</h4>
+                <a href="#">Close</a>
+            </div>
+
+            <div class="online-left">
+                <figure class="online">
+                    <img src="img/member-1.png" alt="member 1">
+                </figure>
+                <p>Rebeca</p>
+            </div>
+
+        </aside>
+    </main>
 
 </body>
 
 </html>
+
+<!-- Aula 3 - Criando Sidebar -->
