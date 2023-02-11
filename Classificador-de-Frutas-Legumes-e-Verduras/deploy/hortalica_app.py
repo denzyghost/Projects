@@ -6,6 +6,10 @@ import pickle
 from scipy.sparse import csr_matrix
 import streamlit as st
 import os
+import sklearn
+
+
+print(sklearn.__version__)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
