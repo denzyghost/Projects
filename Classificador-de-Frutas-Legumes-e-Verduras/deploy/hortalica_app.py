@@ -7,6 +7,7 @@ from scipy.sparse import csr_matrix
 import streamlit as st
 import os
 import sklearn
+from unidecode import unidecode
 
 
 print(sklearn.__version__)
@@ -15,6 +16,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
 def processador_de_texto(data):
+    data = unidecode(data)
     data = re.sub('[^\w\s]', '', str(data.lower()))
     data = data.replace("\r", " ")
     data = data.replace("\n", " ")
