@@ -67,4 +67,6 @@ if st.button("Executar modelo"):
     st.success(result)
 
 data_load_state = st.text(
-    'Projeto de machine learning criado por Alisson Silva\nGitHub: https://github.com/Dhytm')
+    'Projeto de machine learning criado por Alisson Silva\n' +
+    'GitHub: https://github.com/Dhytm\n' +
+    'Licença: https://github.com/Dhytm/Projects/blob/main/LICENSE')
