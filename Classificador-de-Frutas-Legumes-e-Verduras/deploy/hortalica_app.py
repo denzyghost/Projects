@@ -53,6 +53,10 @@ data_load_state = st.text(
     ', especificamente o Random Forest Classifier.\n' +
     'Forneça o nome de uma fruta, legume ou verdura e veja o resultado da classificação em tempo real!')
 
+data_load_state = st.text('Aviso: Embora eu tenha criado com muito cuidado este projeto, e o modelo\n' +
+                          'por tás dele esteja performando muito bem, algums das classificações sugeridas\n' +
+                          'pelo modelo podem estar incorretas, portanto, atente-se a isso!')
+
 # Input do usuário
 input_value = st.text_input("Digite o nome de uma fruta, legume ou verdura:")
 
@@ -75,7 +79,8 @@ if st.button("Executar modelo"):
 
 data_load_state = st.text(
     'Projeto de machine learning criado por Alisson Silva\n' +
-    'GitHub: https://github.com/Dhytm\n' +
+    'Meu GitHub: https://github.com/Dhytm\n' +
+    'Código Fonte deste projeto: https://github.com/Dhytm/Projects/tree/main/Classificador-de-Frutas-Legumes-e-Verduras\n' +
     'Licença: https://github.com/Dhytm/Projects/blob/main/LICENSE\n')
 
 data_load_state = st.text(
