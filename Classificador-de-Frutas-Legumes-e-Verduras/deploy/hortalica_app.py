@@ -26,10 +26,12 @@ def classify_new(input_, myvectorizer):
     return input_vect_array_csr_matrix
 
 
-with open(f"hortalicia_vectorizer.pickle", "rb") as f:
+path = r"Classificador-de-Frutas-Legumes-e-Verduras/deploy/"
+
+with open(f"{path}hortalicia_vectorizer.pickle", "rb") as f:
     h_vectorizer = pickle.load(f)
 
-with open(f"hortalicia_model.pkl", "rb") as f:
+with open(f"{path}hortalicia_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 h_classes = {0.0: "Fruta", 1.0: "Legume", 2.0: "Verdura", }
