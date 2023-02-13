@@ -1,10 +1,10 @@
 # streamlit run hortalica_app.py
 
+import streamlit as st
 import numpy as np
 import re
 import pickle
 from scipy.sparse import csr_matrix
-import streamlit as st
 import os
 import sklearn
 from unidecode import unidecode
@@ -53,9 +53,9 @@ data_load_state = st.text(
     ', especificamente o Random Forest Classifier.\n' +
     'Forneça o nome de uma fruta, legume ou verdura e veja o resultado da classificação em tempo real!')
 
-data_load_state = st.text('Aviso: Embora eu tenha criado com muito cuidado este projeto, e o modelo\n' +
-                          'por tás dele esteja performando muito bem, algums das classificações sugeridas\n' +
-                          'pelo modelo podem estar incorretas, portanto, atente-se a isso!')
+data_load_state = st.text('Aviso: Embora eu tenha criado com muito cuidado este projeto, e o modelo por\n' +
+                          'tás dele esteja performando muito bem, algums das classificações sugeridas pelo\n' +
+                          'modelo podem estar incorretas, portanto, atente-se a isso!')
 
 # Input do usuário
 input_value = st.text_input("Digite o nome de uma fruta, legume ou verdura:")
@@ -71,16 +71,43 @@ if st.button("Executar modelo"):
     classify_vector = classify_new(
         processador_de_texto(input_value), h_vectorizer)
 
-    proba = model.predict_proba(classify_vector)
-    classification = model.predict(classify_vector)
+    # !!!
+    input_validation = True
 
-    result = f"'{input_value}' é classificado como '{h_classes[classification[0]]}'!!!"
-    st.success(result)
+    if not str(classify_vector):
+        input_validation = False
+
+    # !!!
+    if input_validation:
+        proba = model.predict_proba(classify_vector)
+        classification = model.predict(classify_vector)
+
+        result = f"'{input_value}' é classificado como '{h_classes[classification[0]]}'!!!"
+        st.success(result)
+
+    else:
+        error_r = (
+            f"""
+        Desculpe-me, mas o pedido para '{input_value}' foi negado!\n
+        Pode ser que tenha ocorrido alguma falha na digitação ou o termo pode não se enquadrar nas categorias permitidas!
+        """
+        )
+
+        st.error(error_r)
+        result = (
+            """
+            Caso acredite que tenha ocorrido um erro durante sua experiência de uso,
+            por favor, reporte imediatamente ao meu desenvolvedor.
+            Para isso, clique no botão "Reportar um bug" que pode ser acessado
+            nas opções do menu localizado na lateral superior direita da tela.\n
+            Obrigado por sua colaboração!
+            """
+        )
+        st.info(result)
 
 data_load_state = st.text(
     'Projeto de machine learning criado por Alisson Silva\n' +
     'Meu GitHub: https://github.com/Dhytm\n' +
-    'Código Fonte deste projeto: https://github.com/Dhytm/Projects/tree/main/Classificador-de-Frutas-Legumes-e-Verduras\n' +
     'Licença: https://github.com/Dhytm/Projects/blob/main/LICENSE\n')
 
 data_load_state = st.text(
