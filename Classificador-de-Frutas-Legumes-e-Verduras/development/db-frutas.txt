@@ -1,6 +1,6 @@
 Abacate; Abacaxi; Abiu; Araçá; Azeitona; Açaí; Acerola; 
-Ameixa; Amora; Abricó; Anonácea; Atemoya; Abóbora; 
-Babaco; Bacaba; Bacuri; Banana; Baru; Buriti; Bilimbi; 
+Ameixa; Amora; Abricó; Anonácea; Atemoya; Babaco;
+Bacaba; Bacuri; Banana; Baru; Buriti; Bilimbi; 
 Biribá; Butiá; Cabeludinha; Cacau; Cagaita; Cajá-manga; 
 Cereja; Caimito; Cajá; Conde; Cupuaçu; Caju; Calabaça; 
 Carambola; Calabura; Coco; Calamondin; Cambucá; 
