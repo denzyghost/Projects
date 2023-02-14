@@ -1,4 +1,4 @@
-Abóbora; Abobrinha; Aipim; Alho; Amaranto; Amêndoa; Amendoim; Amendoim-da-mata; 
+Abobrinha; Abóbora; Aipim; Alho; Amaranto; Amêndoa; Amendoim; Amendoim-da-mata; 
 Andu; Arachachá; Arroz; Arroz-selvagem; Aveia; Avelã; Azeitona; Baroa; Batata; 
 Batata-doce; Berdana; Berinjela; Beterraba; Cabotchan; Cará; Cará-do-ar; Cará-moela; 
 Castanha-de-baru; Castanha-de-caju; Castanha-de-macaco; Castanha-do-maranhão; 
@@ -14,4 +14,4 @@ Nabo-mexicano; Nabo-sueco; Noz; Nozes-da-macadâmia; Oliva; Palmito; Paru; Pau-r
 Pé-de-anta; Pelega; Pepino; Pepino-japonês; Pequi; Pimenta; Pimentão; Pinhão; 
 Pistache; Quiabo; Quinoa; Rabanete; Rábano; Rábano-silvestre; Raiz-forte; Rutabaga; 
 Shissô (sementes); Soja; Sorgo; Taioba (batata); Taro; Tomate; Tomate-cereja; Tonka; 
-Trigo; Tupinambo; Urucum; Vagem; Wasabi; Xixá; Xoconostle; Zizânia
+Trigo; Tupinambo; Urucum; Vagem; Wasabi; Xixá; Xoconostle; Zizânia; Abóbora
