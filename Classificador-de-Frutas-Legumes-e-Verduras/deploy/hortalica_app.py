@@ -54,7 +54,7 @@ data_load_state = st.text(
     'Forneça o nome de uma fruta, legume ou verdura e veja o resultado da classificação em tempo real!')
 
 data_load_state = st.text('Aviso: Embora eu tenha criado com muito cuidado este projeto, e o modelo por\n' +
-                          'tás dele esteja performando muito bem, algums das classificações sugeridas pelo\n' +
+                          'trás dele esteja performando muito bem, algumas das classificações sugeridas pelo\n' +
                           'modelo podem estar incorretas, portanto, atente-se a isso!')
 
 # Input do usuário
