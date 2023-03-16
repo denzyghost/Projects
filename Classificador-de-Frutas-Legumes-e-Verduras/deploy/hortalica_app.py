@@ -61,7 +61,7 @@ with st.form(key='my_form'):
     input_value = st.text_input("Digite o nome de uma fruta, legume ou verdura",
                                 placeholder="Digite uma fruta, legume ou verdura e clique em Executar modelo")
     choice = st.selectbox("Ou experimente alguma das opções a seguir",
-                          ["Selecionar", "Lucuma", "Escorcioneira", "Caqui",
+                          ["Selecionar (O campo acima precisa estar vazio)", "Lucuma", "Escorcioneira", "Caqui",
                            "Linhaça", "Cacau", "Cajá-manga", "Tarumã", "Sálvia",
                            "Rutabaga", "Wasabi (folha)", "Pinhão", "Bredo",
                            "Shissô", "Picão", "Gobô", "Kohlrabi", "Urtiga"],
